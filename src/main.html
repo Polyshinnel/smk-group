@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="assets/js/fancybox/fancybox.css">
-    <link rel="stylesheet" href="assets/js/collapse/collapse.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>СМК Сервис - Центр сертификации и СМК</title>
 </head>
@@ -47,7 +46,9 @@
 
                         <button class="recall-btn text-white py-2 px-4 rounded text-xs ml-7 cursor-pointer" data-fancybox data-src="#fancy-recall-box">Перезвоните мне</button>
 
-                        <img src="assets/img/header/menu.svg" alt="" class="menu-btn hidden">
+                        <button class="menu-btn hidden">
+                            <img src="assets/img/header/menu.svg" alt="">
+                        </button>
                     </div>
                 </div>
                 <!--/top-header__wrapper-->
@@ -72,6 +73,29 @@
             </div>
         </div>
         <!--/.bottom-heade-->
+
+        <div class="mob-menu">
+            <button class="close-menu">
+                <img src="assets/img/header/cross.svg" alt="Close icon">
+            </button>
+            <div class="mob-menu__wrapper">
+                <img src="assets/img/logo.webp" alt="Смк Сервис">
+                <ul>
+                    <li><a href="#iso">ISO</a></li>
+                    <li><a href="#smk">СМК</a></li>
+                    <li><a href="#tr-ts">ТР-ТС</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                <div class="menu-social">
+                    <a href="#"><img src="assets/img/contacts/email.svg" alt="email icon"></a>
+                    <a href="#"><img src="assets/img/contacts/whatsapp.svg" alt="whatsapp icon"></a>
+                    <a href="#"><img src="assets/img/contacts/telegram.svg" alt="telegram icon"></a>
+                </div>
+            </div>
+            
+        </div>
+        <!-- /.mob-menu -->
     </header>
 
     <main>
@@ -500,30 +524,33 @@
                     <div class="recall-block__text">
                         <h2 class="text-5xl font-semibold">НЕ ЗНАЕТЕ ЧТО ИМЕННО ВАМ ТРЕБУЕТСЯ?</h2>
                         <p class="mt-8 text-2xl">Наши менеджеры свяжутся с Вами в рабочее время и предложат лучшее решение Ваших задач</p>
-                        <div class="recall-block__policy mt-14">
-                            <label for="recall-policy" class="flex items-start recall-checkbox text-lg font-light text-left">
-                                <input type="checkbox" name="recall-policy" id="recall-policy" checked>
-                                <span class="flex mr-4 mt-1"></span>
-                                Я согласен с политикой обработки персональных данных.
-                            </label>
-                        </div>
                     </div>
                     <!--/.recall-block__text-->
 
                     <div class="recall-block__input-list">
                         <div class="recall-block__input">
                             <input type="text" id="recall-block-name" placeholder="Ваше имя">
+                            <p class="err-block text-white mt-2 text-xs hidden">Введите корректное имя</p>
                         </div>
                         <div class="recall-block__input">
                             <input type="text" id="recall-block-phone" placeholder="Ваш телефон">
+                            <p class="err-block text-white mt-2 text-xs hidden">Введите корректный телефон</p>
                         </div>
                         <div class="recall-block__input">
                             <input type="text" id="recall-block-email" placeholder="Ваша почта">
+                            <p class="err-block text-white mt-2 text-xs hidden">Введите корректную почту</p>
                         </div>
                         <div class="recall-block__input">
                             <textarea placeholder="Ваш вопрос" id="recall-block-message"></textarea>
+                            <p class="err-block text-white mt-2 text-xs hidden">Длинна сообщения должна быть не менее 10 символов</p>
                         </div>
                         <button class="send-recall">Отправить</button>
+                    </div>
+
+                    <div class="recall-block-success">
+                        <img src="assets/img/success-white.svg" alt="">
+                        <h3>Успех!</h3>
+                        <p>Сообщение успешно отправлено!<br>В ближайшее время мы Вам перезвоним</p>
                     </div>
                 </div>
             </div>
@@ -626,69 +653,57 @@
     
 
     <div class="fancy-recall-box p-0 hidden" id="fancy-recall-box">
-        <div class="fancy-recall-box__header">
-            <div class="fancy-recall-box__header-wrapper flex items-center justify-between w-full">
-                <img src="assets/img/recall/logo-w.webp" alt="Смк сервис белый">
-                <h2 class="font-semibold text-white text-xl">Сертификация<br>это просто</h2>
+        <div class="fancy-recall-box-wrapper">
+            <div class="fancy-recall-box__header">
+                <div class="fancy-recall-box__header-wrapper flex items-center justify-between w-full">
+                    <img src="assets/img/recall/logo-w.webp" alt="Смк сервис белый">
+                    <h2 class="font-semibold text-white text-xl">Сертификация<br>это просто</h2>
+                </div>
+            </div>
+            <div class="fancy-recall-box__body p-8 flex items-center flex-col">
+                <h3 class="text-center text-4xl font-semibold">Онлайн заявка</h3>
+                <p class="text-center mt-5 font-light text-base">Перезвоним в течении 15 минут в рабочее время</p>
+    
+                <div class="fancy-recall-box__body-input w-full">
+                    <div class="fancy-recall-box__body-input-unit">
+                        <label for="recall-window-person">Ваше имя</label>
+                        <input type="text" name="recall-window-person" id="recall-window-person" placeholder="Иванов Иван">
+                        <img src="assets/img/recall/person.svg" alt="smk-person-icon">
+                        <p class="err-text text-xs hidden">Введите корректное имя</p>
+                    </div>
+    
+                    <div class="fancy-recall-box__body-input-unit">
+                        <label for="recall-window-number">Ваш номер</label>
+                        <input type="text" name="recall-window-number" id="recall-window-number" placeholder="+7(999)999-99-99">
+                        <img src="assets/img/recall/flag.svg" alt="smk-russia-icon">
+                        <p class="err-text text-xs hidden">Введите корректный номер</p>
+                    </div>
+                </div>
+    
+                <div class="policy-block w-full">
+                    <label for="policy-checkbox" class="flex items-center mt-6 text-base font-light">
+                        <input type="checkbox" name="policy-checkbox" id="policy-checkbox" checked class="mr-3 mt-2">
+                        Я согласен с политикой конфиденциальности
+                    </label>
+                    <p class="err-text text-xs hidden">Подтвердите согласие с политикой конфиденциальности</p>
+                </div>
+    
+                <button class="recall-window__btn mt-10">Перезвоните мне</button>
             </div>
         </div>
-        <div class="fancy-recall-box__body p-8 flex items-center flex-col">
-            <h3 class="text-center text-4xl font-semibold">Онлайн заявка</h3>
-            <p class="text-center mt-5 font-light text-base">Перезвоним в течении 15 минут в рабочее время</p>
-
-            <div class="fancy-recall-box__body-input w-full">
-                <div class="fancy-recall-box__body-input-unit">
-                    <label for="recall-window-person">Ваше имя</label>
-                    <input type="text" name="recall-window-person" id="recall-window-person" placeholder="Иванов Иван">
-                    <img src="assets/img/recall/person.svg" alt="smk-person-icon">
-                </div>
-
-                <div class="fancy-recall-box__body-input-unit">
-                    <label for="recall-window-number">Ваш номер</label>
-                    <input type="text" name="recall-window-number" id="recall-window-number" placeholder="+7(999)999-99-99">
-                    <img src="assets/img/recall/flag.svg" alt="smk-russia-icon">
-                </div>
-            </div>
-
-            <div class="policy-block w-full">
-                <label for="policy-checkbox" class="flex items-center mt-6 text-base font-light">
-                    <input type="checkbox" name="policy-checkbox" id="policy-checkbox" checked class="mr-3 mt-2">
-                    Я согласен с политикой конфиденциальности
-                </label>
-            </div>
-
-            <button class="recall-window__btn mt-10">Перезвоните мне</button>
+        <!--/.fancy-recall-box-wrapper-->
+        
+        <div class="fancy-recall-box-success">
+            <img src="assets/img/success-green.svg" alt="">
+            <h2>Успех!</h2>
+            <p>Сообщение успешно отправлено!<br>
+            В ближайшее время мы Вам перезвоним</p>
+            <button class="recall-window__close mt-10" onclick="Fancybox.close();">Закрыть</button>
         </div>
     </div>
 
     <script src="assets/js/fancybox/fancybox.umd.js"></script>
     <script src="assets/js/inputmask/imask.js"></script>
-    <script src="assets/js/collapse/collapse.js"></script>
-    <script>
-        const element = document.getElementById('recall-window-number');
-        const element1 = document.getElementById('recall-block-phone');
-        const maskOptions = {
-            mask: '+{7}(000)000-00-00'
-        };
-        const mask = IMask(element, maskOptions);
-        const mask1 = IMask(element1, maskOptions);
-    </script>
-    <script>
-        Fancybox.bind("[data-fancybox]", {
-        });
-    </script>
-    <script>
-        let ancors = document.querySelectorAll('a[href^="#"]')
-        ancors.forEach(ancor => {
-            ancor.addEventListener('click', function (e) {
-                e.preventDefault();
-        
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
